@@ -8,7 +8,7 @@ var axios = require("axios");
 
 var input = process.argv[2];
 var searchTerm = process.argv.slice(3).join(' ')
-console.log(searchTerm)
+
 
 var fs = require('fs')
 
@@ -18,7 +18,10 @@ function spotifySearch() {
             return console.log('Error occurred: ' + err);
         }
         for (i = 0; i < response.tracks.items.length; i++) {
-            console.log(response.tracks.items);
+            console.log("Artist(s): " + response.tracks.items[i].album.artists[0].name);
+            console.log("Song Title: " + response.tracks.items[i].name);
+            console.log("Song Preview Link: " + response.tracks.items[i].album.external_urls.spotify)
+            console.log("Album: " + response.tracks.items[i].album.name)
         }
     });
 }
