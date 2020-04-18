@@ -45,3 +45,6 @@ This LIRI (Language Interpretation and Recognition Interface) app utilizes node.
 4. `node liri.js do-what-it-says`
 
 * LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
+
+
+*** If cloning this repo, user will need to get their own Spotify API key for full functionality.
