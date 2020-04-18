@@ -2,15 +2,12 @@ var keys = require("./keys.js");
 var moment = require('moment');
 moment().format();
 var Spotify = require('node-spotify-api');
-
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
-
 var input = process.argv[2];
 var searchTerm = process.argv.slice(3).join(' ')
-
-
 var fs = require('fs')
+
 
 function spotifySearch() {
     spotify.search({ type: 'track', query: searchTerm }, function (err, response) {
@@ -39,6 +36,7 @@ function concertSearch() {
 function movieSearch() {
     axios.get("http://www.omdbapi.com/?t=" + searchTerm + "&y=&plot=short&apikey=trilogy").then(
         function (response) {
+            console.log(response.data.Title);
             console.log("Release Date: " + response.data.Released);
             console.log("The movie's IMDB rating is: " + response.data.imdbRating);
             console.log("The movie's Rotten Tomatoes rating is: " + response.data.Ratings[1].Value)
