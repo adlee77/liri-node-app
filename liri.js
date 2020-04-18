@@ -8,6 +8,9 @@ var input = process.argv[2];
 var searchTerm = process.argv.slice(3).join(' ')
 var fs = require('fs')
 
+if (!searchTerm){
+    searchTerm = "The Sign"
+}
 
 function spotifySearch() {
     spotify.search({ type: 'track', query: searchTerm }, function (err, response) {
