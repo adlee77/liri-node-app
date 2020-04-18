@@ -1,5 +1,6 @@
 var keys = require("./keys.js");
-
+var moment = require('moment');
+moment().format();
 var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify(keys.spotify);
@@ -26,7 +27,9 @@ function concertSearch() {
         .then(function (response) {
             // console.log(response.data)
             for (i = 0; i < response.data.length; i++) {
-                console.log(response.data)
+                console.log("Name of Venue: " + response.data[i].venue.name)
+                console.log("Venue Location: " + response.data[i].venue.location)
+                console.log("Date of Event " + moment(response.data[i].datetime).format("MMM Do YYYY"))
             }
         })
 }
