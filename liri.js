@@ -68,7 +68,6 @@ function menu() {
             break;
         case "spotify-this-song":
             spotifySearch()
-            // process.argv[3] = song-search
             break;
         case "movie-this":
             movieSearch()
